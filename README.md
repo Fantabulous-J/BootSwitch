@@ -1,10 +1,9 @@
 # Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval
 Source code for our EMNLP 2023 Findings Paper "Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval".
 
-## Install environment with Conda
-Create a conda env:
+## Install environment
 ```shell
-conda create --name DPR --file requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Evaluation
@@ -53,11 +52,9 @@ python eval_x2.py \
 #### Download Dataset
 ```shell
 mkdir -p ODQA
-cd ODQA
 wget https://dl.fbaipublicfiles.com/dpr/data/retriever/nq-test.qa.csv
 wget https://dl.fbaipublicfiles.com/dpr/wikipedia_split/psgs_w100.tsv.gz
 gunzip -d psgs_w100.tsv.gz
-cd ../
 ```
 
 #### Generate Embeddings
