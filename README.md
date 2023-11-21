@@ -1,6 +1,12 @@
 # Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval
 Source code for our EMNLP 2023 Findings Paper "Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval".
 
+## Install environment with Conda
+Create a conda env:
+```shell
+conda create --name DPR --file requirements.txt
+```
+
 ## Evaluation
 ### Models
 - [fanjiang98/ABEL-Query-Encoder-Warmup](https://huggingface.co/fanjiang98/ABEL-Query-Encoder-Warmup): warm-up query encoder.
