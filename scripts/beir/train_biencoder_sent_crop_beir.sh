@@ -14,6 +14,8 @@ source /home/fanjiang/miniconda3/bin/activate DPR
 srun python train_crop_sent.py --distributed_port 23333 \
   --output_dir ./checkpoints/ABEL \
   --model_name_or_path facebook/contriever \
+  --query_model_name_or_path fanjiang98/ABEL-Query-Encoder-Warmup \
+  --passage_model_name_or_path fanjiang98/ABEL-Passage-Encoder-Warmup \
   --save_steps 20000 \
   --data_dir beir \
   --train_path sent-query-t5-base-hard-negatives-iteration1.jsonl \
