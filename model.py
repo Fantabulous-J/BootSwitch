@@ -58,7 +58,16 @@ class BiEncoder(nn.Module):
             model_args.model_name_or_path = model_name_or_path
         logger.info(f"Load model from {model_args.model_name_or_path}")
 
-        if os.path.isdir(model_args.model_name_or_path):
+        if model_args.query_model_name_or_path is not None and model_args.passage_model_name_or_path is not None:
+            _qry_model_path = model_args.query_model_name_or_path
+            _psg_model_path = model_args.passage_model_name_or_path
+
+            logger.info(f'loading query model weight from {_qry_model_path}')
+            query_encoder = AutoModel.from_pretrained(_qry_model_path, **hf_kwargs)
+            logger.info(f'loading passage model weight from {_psg_model_path}')
+            passage_encoder = AutoModel.from_pretrained(_psg_model_path, **hf_kwargs)
+
+        elif os.path.isdir(model_args.model_name_or_path):
             if model_args.shared_encoder:
                 query_encoder = AutoModel.from_pretrained(model_args.model_name_or_path, **hf_kwargs)
                 passage_encoder = query_encoder
@@ -91,13 +100,10 @@ class BiEncoder(nn.Module):
     def forward(self,
                 query: Dict[str, Tensor] = None,
                 passage: Dict[str, Tensor] = None,
-                augment_memory: Tensor = None,
-                teacher_scores: Tensor = None,
-                compute_loss: bool = False,
                 only_query: bool = False,
                 only_passage: bool = False):
 
-        query_vector = self.encode_query(query, augment_memory)
+        query_vector = self.encode_query(query)
         if only_query:
             return BiEncoderOutput(query_vector=query_vector)
         passage_vector = self.encode_passage(passage)

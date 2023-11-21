@@ -2,6 +2,11 @@
 Source code for our EMNLP 2023 Findings Paper "Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval".
 
 ## Evaluation
+### Models
+- [fanjiang98/ABEL-Query-Encoder-Warmup](https://huggingface.co/fanjiang98/ABEL-Query-Encoder-Warmup): warm-up query encoder.
+- [fanjiang98/ABEL-Passage-Encoder-Warmup](https://huggingface.co/fanjiang98/ABEL-Passage-Encoder-Warmup): warm-up passage encoder.
+- [fanjiang98/ABEL-Query-Encoder](https://huggingface.co/fanjiang98/ABEL-Query-Encoder): query encoder.
+- [fanjiang98/ABEL-Passage-Encoder](https://huggingface.co/fanjiang98/ABEL-Passage-Encoder): passage encoder.
 ### BEIR
 #### Download Dataset
 ```shell
