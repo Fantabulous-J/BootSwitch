@@ -47,9 +47,11 @@ python eval_x2.py \
 #### Download Dataset
 ```shell
 mkdir -p ODQA
+cd ODQA
 wget https://dl.fbaipublicfiles.com/dpr/data/retriever/nq-test.qa.csv
 wget https://dl.fbaipublicfiles.com/dpr/wikipedia_split/psgs_w100.tsv.gz
 gunzip -d psgs_w100.tsv.gz
+cd ../
 ```
 
 #### Generate Embeddings
