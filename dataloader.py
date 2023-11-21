@@ -278,7 +278,7 @@ class GenericDataLoader:
                         reader = csv.reader(fIn, delimiter="\t")
                         for row in tqdm(reader):
                             if not row[0] == "qid":
-                                queries[str(len(queries))] = row[0]
+                                queries[str(len(queries))] = row[1]
                 else:
                     with open(query_file, encoding='utf-8') as fIn:
                         for line in fIn:

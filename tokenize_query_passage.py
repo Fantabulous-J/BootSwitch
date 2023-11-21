@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
         corpus = GenericDataLoader(os.path.join(directory, task), corpus_file='corpus.json').load_corpus()
         corpus = [(pid, passage) for pid, passage in corpus.items()]
-        queries = GenericDataLoader(os.path.join(directory, task), query_file='sent_query.txt').load_queries()
+        queries = GenericDataLoader(os.path.join(directory, task), query_file='sent_query.tsv').load_queries()
         queries = [(qid, query) for qid, query in queries.items()]
 
         output_path = '{}/{}/tokenized_query.jsonl'.format(directory, task)

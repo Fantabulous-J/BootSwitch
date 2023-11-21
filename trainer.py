@@ -263,11 +263,10 @@ class CropSentenceTrainer(object):
                 kl_loss = self.train_step(batch)
 
                 # gradient accumulation steps
-                if not self.training_args.distributed_contrast:
-                    if self.use_amp:
-                        self.scaler.scale(kl_loss).backward()
-                    else:
-                        kl_loss.backward()
+                if self.use_amp:
+                    self.scaler.scale(kl_loss).backward()
+                else:
+                    kl_loss.backward()
 
                 if (step + 1) % self.training_args.gradient_accumulation_steps == 0:
                     if self.use_amp:
@@ -282,7 +281,7 @@ class CropSentenceTrainer(object):
                     self.scheduler.step()
                     global_step += 1
 
-                if self.training_args.negatives_x_device and not self.training_args.distributed_contrast:
+                if self.training_args.negatives_x_device:
                     kl_loss = kl_loss / self._dist_loss_scale_factor
                     loss_list = [torch.zeros_like(kl_loss) for _ in range(dist.get_world_size())]
                     dist.all_gather(tensor_list=loss_list, tensor=kl_loss.contiguous())
