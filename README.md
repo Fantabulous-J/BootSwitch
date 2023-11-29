@@ -52,9 +52,11 @@ python eval_x2.py \
 #### Download Dataset
 ```shell
 mkdir -p ODQA
+cd ODQA
 wget https://dl.fbaipublicfiles.com/dpr/data/retriever/nq-test.qa.csv
 wget https://dl.fbaipublicfiles.com/dpr/wikipedia_split/psgs_w100.tsv.gz
 gunzip -d psgs_w100.tsv.gz
+cd ../
 ```
 
 #### Generate Embeddings
@@ -95,7 +97,7 @@ python encode.py \
     --max_passage_length 512 \
     --per_device_eval_batch_size 128 \
     --encode_shard_index $i \
-    --encode_num_shard 10 \
+    --encode_num_shard 20 \
     --dataloader_num_workers 4 \
     --encoded_save_path ${DATA_PATH}/encoding/embedding_split${i}.pt
 done
