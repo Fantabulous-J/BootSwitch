@@ -273,7 +273,7 @@ class GenericDataLoader:
             if self.use_mmap:
                 queries = QueryDataset(query_file)
             else:
-                if query_file.endswith('tsv'):
+                if query_file.endswith('tsv') or query_file.endswith('csv'):
                     with open(query_file, encoding='utf-8') as fIn:
                         reader = csv.reader(fIn, delimiter="\t")
                         for row in tqdm(reader):
