@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```shell
 mkdir -p beir
 cd beir
-wget https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/fiqa.zip
+wget https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/scifact.zip
 unzip scifact.zip
 cd ../
 ```
