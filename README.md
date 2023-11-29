@@ -1,5 +1,5 @@
 # Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval
-Source code for our EMNLP 2023 Findings Paper "Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval".
+Source code for our EMNLP 2023 Findings Paper [Boot and Switch: Alternating Distillation for Zero-Shot Dense Retrieval](https://arxiv.org/pdf/2311.15564.pdf).
 
 ## Install environment
 ```shell
